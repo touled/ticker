@@ -15,6 +15,13 @@ public class Utils {
     private static final String SEMICOLON_DELIMITER = ";";
     private static final int COLUMNS = 4;
 
+    /**
+     * Построчно считывает файл CSV, используя SEMICOLON_DELIMITER как разделитель
+     * @param file - файл CSV
+     * @return возвращает список объектов Ticker
+     * @throws IllegalArgumentException если файл содержит неверные записи
+     * @throws IllegalStateException если не удалось найти файл
+     */
     public static List<Ticker> parseCsv(File file) {
         List<Ticker> records = new ArrayList<>();
         try (Scanner scanner = new Scanner(file)) {
@@ -30,6 +37,11 @@ public class Utils {
         return records;
     }
 
+    /**
+     * Читает данные со строки и создает объект Ticker
+     * @param line - строка, считанная из файла CSV
+     * @return возвращает объект Ticker, если удалось считать все данные для создания объекта, иначе возвращает пустой опциоанльный объект
+     */
     private static Optional<Ticker> getRecordFromLine(String line) {
         List<String> values = new ArrayList<String>();
         try (Scanner rowScanner = new Scanner(line)) {
