@@ -16,7 +16,7 @@ public class WebConfig {
     }
 
     @Bean
-    public File getFile() {
+    public File file() {
         File file = new File("./src/test/resources/div.csv");
         assert file.exists();
         return file;

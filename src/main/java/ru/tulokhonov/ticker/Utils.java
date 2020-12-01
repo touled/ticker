@@ -28,11 +28,11 @@ public class Utils {
             while (scanner.hasNextLine()) {
                 records.add(getRecordFromLine(scanner.nextLine())
                         .orElseThrow(
-                            () -> new IllegalArgumentException("Invalid values. Please check CSV file")
+                            () -> new IllegalArgumentException("Неверный формат данных CSV файла")
                         ));
             }
         } catch (FileNotFoundException exception) {
-            throw new IllegalStateException("File not found!", exception);
+            throw new IllegalStateException("Файл CSV не найден!", exception);
         }
         return records;
     }

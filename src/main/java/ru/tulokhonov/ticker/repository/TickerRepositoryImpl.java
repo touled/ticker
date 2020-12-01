@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.tulokhonov.ticker.Utils;
 import ru.tulokhonov.ticker.model.Ticker;
+
+import javax.annotation.PostConstruct;
 import java.io.File;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -53,5 +55,10 @@ public class TickerRepositoryImpl implements TickerRepository {
                 .stream()
                 .filter(t -> t.getAmount().equals(target))
                 .collect(toList());
+    }
+
+    @PostConstruct
+    public void setup() {
+        if (!file.exists()) throw new IllegalArgumentException("Файл CSV не найдет");
     }
 }

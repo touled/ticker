@@ -30,6 +30,6 @@ public class MainController {
             case "dateEx": return tickerRepository.findByDateEx(value);
             case "ticker" : return tickerRepository.findByTicker(value);
         }
-        throw new IllegalArgumentException("Invalid \"by\" parameter");
+        throw new IllegalArgumentException("Неверный параметр \"by\"");
     }
 }
