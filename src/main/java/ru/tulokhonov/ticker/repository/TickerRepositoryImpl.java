@@ -11,6 +11,9 @@ import java.time.LocalDate;
 import java.util.List;
 import static java.util.stream.Collectors.toList;
 
+/**
+ * Реализация интерфейса TickerRepository, использующая файл в качестве источника данных
+ */
 @Service
 public class TickerRepositoryImpl implements TickerRepository {
     @Autowired
