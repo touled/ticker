@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.tulokhonov.ticker.Utils;
 import ru.tulokhonov.ticker.model.Ticker;
-
 import javax.annotation.PostConstruct;
 import java.io.File;
 import java.math.BigDecimal;
@@ -57,6 +56,10 @@ public class TickerRepositoryImpl implements TickerRepository {
                 .collect(toList());
     }
 
+    /**
+     * Проверяет файл на присутствие. Предотвращает запуск приложения при отсутствии файла
+     * @throws IllegalStateException если файл не существует
+     */
     @PostConstruct
     public void setup() {
         if (!file.exists()) throw new IllegalArgumentException("Файл CSV не найдет");

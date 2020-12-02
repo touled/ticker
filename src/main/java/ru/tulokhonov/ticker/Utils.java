@@ -12,7 +12,9 @@ import java.util.Optional;
 import java.util.Scanner;
 
 public class Utils {
+    // разделитель в файле CSV
     private static final String SEMICOLON_DELIMITER = ";";
+    // число столбцов в файле CSV
     private static final int COLUMNS = 4;
 
     /**
